@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/*background image*/
+.page-bg {
+  min-height: 100vh;
+  background-image: url("/image/background.jpg"); 
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* place the card */
+.card-wrapper {
+  perspective: 1400px;
+}
+
+/* card*/
+.card {
+  width: 550px;          
+  height: 900px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+/*Press the arrow */
+#flip:checked ~ .card {
+  transform: rotateY(180deg);
+}
+
+/* card faces */
+.card-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+/* ================= FRONT ================= */
+.card-front {
+  background: #000;
+}
+.card-front::after {
+  content: "";
+  position: none;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/*image */
+.card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.9) contrast(0.9) saturate(0.85);
+}
+
+/* content */
+.front-content {
+  position: absolute;
+  bottom: 40px;
+  left: 32px;
+  right: 32px;
+  color: #fff;
+}
+
+.front-content h2 {
+  font-size: 26px;
+  line-height: 1.3;
+  margin-bottom: 24px;
+}
+
+/* arrow_button */
+.arrow-btn {
+  width: 54px;
+  height: 54px;
+  border: 2px solid #1da1f2;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1da1f2;
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.4s ease;
+  position: relative;
+}
+
+
+.front-content .arrow-btn {
+  margin-left: auto;
+}
+
+/* expansion */
+.arrow-btn:hover {
+  width: 80px;
+  border-radius: 30px;
+}
+
+/* ================= BACK ================= */
+.card-back {
+  background: #fff;
+  transform: rotateY(180deg);
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* logo */
+.logo {
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+/* title back*/
+.card-back h2 {
+  font-size: 26px;
+  color: #0b2545;
+  margin-bottom: 16px;
+}
+
+/*text*/
+.card-back p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.back-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Read more */
+.back-footer span {
+  color: #1da1f2;
+  font-size: 16px;
+}
+
+/*back arrow */
+.card-back .arrow-btn {
+  border-color: #1da1f2;
+  color: #1da1f2;
+}
